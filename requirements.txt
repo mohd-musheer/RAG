@@ -9,3 +9,5 @@ langsmith
 langchain_tavily
 yt-dlp
 youtube-transcript-api
+langchain-mcp-adapters
+mcp
