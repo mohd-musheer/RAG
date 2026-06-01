@@ -11,3 +11,9 @@ yt-dlp
 youtube-transcript-api
 langchain-mcp-adapters
 mcp
+pypdf
+pymupdf
+langchain-core
+sentence-transformers 
+faiss-cpu
+chromadb
