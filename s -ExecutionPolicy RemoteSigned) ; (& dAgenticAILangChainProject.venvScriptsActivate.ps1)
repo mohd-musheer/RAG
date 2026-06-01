@@ -1,0 +1,120 @@
+[33mcommit 524662213dff82a195f369513e57a6347a905d0b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Mon Jun 1 18:43:34 2026 +0530
+
+    Rag PipeLine
+
+[33mcommit 425894cf81ca6c692a37afab152c9e196e968726[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Mon Jun 1 18:41:56 2026 +0530
+
+    Rag PipeLine
+
+[33mcommit cacb513856e495cac03a718f4cc69157aee31ff1[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Mon Jun 1 18:38:45 2026 +0530
+
+    loaders
+
+[33mcommit 74f94ceef93aff24dc8f7f77c0a13a9e3b0eee1e[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Mon Jun 1 18:35:14 2026 +0530
+
+    loaders'
+    '
+
+[33mcommit eeb76c23eba0ebb3a6290b5d25cc9081324c0b4a[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Sun May 31 13:45:44 2026 +0530
+
+    clean code
+
+[33mcommit 92a3588056810479bd17ea2225f65b01b0832424[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Sat May 30 23:17:10 2026 +0530
+
+    running mcp
+
+[33mcommit 9135bf724dbe1432740cdb838125a7c4aa5783d2[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Sat May 30 22:55:16 2026 +0530
+
+    mcp errors
+
+[33mcommit a2fe9ec2e4f7b3c4049ec11d1f95dba864828e4f[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Fri May 29 13:10:21 2026 +0530
+
+    chatbot completed
+
+[33mcommit 5fb44b0fc8ea9389a1dfcfd7d6ba09d99dafb2ea[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Fri May 29 00:18:59 2026 +0530
+
+    not working need sleep
+
+[33mcommit 937895390fe7be6b84f28c07aa2e35008eed9a59[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Thu May 28 12:08:25 2026 +0530
+
+    chatbot project
+
+[33mcommit 6208e1f958306ba85c0c5bdc7d4e9d5173f2b1e4[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Thu May 28 12:04:00 2026 +0530
+
+    chatbot project
+
+[33mcommit 024caf11394e78fd018719114833c6bdafaa7f57[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Thu May 28 12:03:23 2026 +0530
+
+    Langgraph
+
+[33mcommit 51e2a6f18d178f1585b0617b6f26ad8aa2e996d4[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Wed May 27 20:15:06 2026 +0530
+
+    human in the loop
+
+[33mcommit 140dc976dba8933b2fb453360566bb34f3e28428[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Tue May 26 17:16:32 2026 +0530
+
+    middleware/summarization
+
+[33mcommit 7a226800d1320724860a2973f9048570f5ff15a5[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Tue May 26 17:16:00 2026 +0530
+
+    middleware/summarization
+
+[33mcommit 1066fb0b5a178993c3e767177f7516e6106e8561[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Mon May 25 23:29:27 2026 +0530
+
+    structured output completed
+
+[33mcommit 981007e44e32edf2e2daa7c8c53524fd15d88754[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Mon May 25 19:56:10 2026 +0530
+
+    structured output
+
+[33mcommit a4d029fce1dd6c560eda863eb8405ad55e5790ad[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Mon May 25 00:14:40 2026 +0530
+
+    streaming and batch
+
+[33mcommit 7209601375e34c351b2247b713567950177bebd9[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Sun May 24 21:21:13 2026 +0530
+
+    env example
+
+[33mcommit 9bbb96f2a0762c13bea39736c4638f5c866715ae[m
+Author: mohd-musheer <musheerayan@gmail.com>
+Date:   Sun May 24 21:19:41 2026 +0530
+
+    initial
