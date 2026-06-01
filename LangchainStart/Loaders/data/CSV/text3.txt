@@ -1,0 +1,448 @@
+# 🚀 KnowledgeVault AI
+
+> AI-powered personal knowledge assistant built using **LangGraph**, **LangChain**, **MCP (Model Context Protocol)**, **Google Gmail API**, **Google Drive API**, and **Groq LLMs**.
+
+---
+
+## 📌 Overview
+
+KnowledgeVault AI is a multi-MCP agent that can connect to:
+
+* 📧 Gmail
+* 📁 Google Drive
+* 🧠 Analytics/Summarization Engine
+
+The agent can retrieve information from multiple sources and generate intelligent summaries using LLMs.
+
+---
+
+## ✨ Features
+
+### Gmail MCP
+
+* Fetch recent emails
+* Search emails
+* Extract sender, subject, date, and snippets
+* Summarize inbox activity
+
+### Google Drive MCP
+
+* List recent files
+* Search files by name
+* Retrieve file metadata
+* Analyze Drive activity
+
+### Analytics MCP
+
+* Structured summarization
+* Main topics extraction
+* Important points extraction
+* Action item generation
+* Short summary generation
+
+### Agent
+
+* Multi-server MCP integration
+* Tool calling with LangGraph
+* Autonomous reasoning
+* Cross-tool analysis
+
+---
+
+# 🏗️ Architecture
+
+```text
+User
+ │
+ ▼
+LangGraph Agent
+ │
+ ├── Gmail MCP
+ │      ├── get_recent_emails
+ │      └── search_emails
+ │
+ ├── Google Drive MCP
+ │      ├── list_drive_files
+ │      └── search_drive_files
+ │
+ └── Analytics MCP
+        └── summarize_data
+```
+
+---
+
+# 📂 Project Structure
+
+```text
+KnowledgeVault-AI
+│
+├── Agent
+│   └── client.py
+│
+├── GmailMCPTools
+│   ├── emails.py
+│   └── google_auth_helper.py
+│
+├── GoogleDriveMCPTools
+│   ├── google_drive.py
+│   └── google_auth_helper.py
+│
+├── AnalyticsMCPTools
+│   └── summarize_data.py
+│
+├── .env
+├── credentials.json
+├── token.json
+├── requirements.txt
+├── README.md
+└── pyproject.toml
+```
+
+---
+
+# ⚙️ Installation
+
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/yourusername/KnowledgeVault-AI.git
+
+cd KnowledgeVault-AI
+```
+
+## 2️⃣ Create Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### Linux / Mac
+
+```bash
+source .venv/bin/activate
+```
+
+## 3️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 🔑 Environment Variables
+
+Create a `.env` file:
+
+```env
+GROQ_API_KEY=your_groq_api_key
+```
+
+---
+
+# ☁️ Google OAuth Setup
+
+## Step 1 — Create Google Cloud Project
+
+Visit:
+
+```text
+https://console.cloud.google.com
+```
+
+Create a new project.
+
+---
+
+## Step 2 — Enable APIs
+
+Enable:
+
+* Gmail API
+* Google Drive API
+
+Path:
+
+```text
+APIs & Services → Library
+```
+
+---
+
+## Step 3 — Configure OAuth Consent Screen
+
+Navigate:
+
+```text
+APIs & Services
+→ OAuth Consent Screen
+```
+
+Choose:
+
+```text
+External
+```
+
+Fill:
+
+* App Name
+* Support Email
+* Developer Email
+
+---
+
+## Step 4 — Add Scopes
+
+Add:
+
+```text
+https://www.googleapis.com/auth/gmail.readonly
+```
+
+```text
+https://www.googleapis.com/auth/drive.readonly
+```
+
+---
+
+## Step 5 — Add Test User
+
+Navigate:
+
+```text
+OAuth Consent Screen
+→ Test Users
+```
+
+Add your Gmail account.
+
+---
+
+## Step 6 — Create OAuth Credentials
+
+Navigate:
+
+```text
+Credentials
+→ Create Credentials
+→ OAuth Client ID
+```
+
+Choose:
+
+```text
+Desktop Application
+```
+
+Download:
+
+```text
+credentials.json
+```
+
+Place it in the project root:
+
+```text
+KnowledgeVault-AI/
+```
+
+---
+
+# 🔐 First Authentication
+
+Run:
+
+```bash
+python -m GmailMCPTools.emails
+```
+
+Google login page opens.
+
+Approve permissions.
+
+After successful authentication:
+
+```text
+token.json
+```
+
+will be generated automatically.
+
+---
+
+# 🚨 Security Notes
+
+Never upload these files:
+
+```text
+.env
+credentials.json
+token.json
+```
+
+Add them to `.gitignore`.
+
+Example:
+
+```gitignore
+.env
+credentials.json
+token.json
+
+__pycache__/
+*.pyc
+```
+
+---
+
+# ▶️ Running MCP Servers
+
+## Gmail MCP
+
+```bash
+python -m GmailMCPTools.emails
+```
+
+Available tools:
+
+```text
+get_recent_emails
+search_emails
+```
+
+---
+
+## Google Drive MCP
+
+```bash
+python -m GoogleDriveMCPTools.google_drive
+```
+
+Available tools:
+
+```text
+list_drive_files
+search_drive_files
+```
+
+---
+
+## Analytics MCP
+
+```bash
+python -m AnalyticsMCPTools.summarize_data
+```
+
+Available tools:
+
+```text
+summarize_data
+```
+
+---
+
+# 🤖 Running The Agent
+
+```bash
+python -m Agent.client
+```
+
+Example prompts:
+
+```text
+Summarize my latest 5 emails
+```
+
+```text
+Show my recent Google Drive files
+```
+
+```text
+Summarize recent emails and Drive uploads
+```
+
+```text
+Find AI-related emails and summarize them
+```
+
+---
+
+# 📊 Example Output
+
+```text
+Summary of Recent Emails
+
+- 4 job alerts
+- 1 Google security notification
+
+Action Items:
+1. Review Google security alert
+2. Apply to relevant AI/ML roles
+3. Archive irrelevant newsletters
+```
+
+---
+
+# ⚠️ Current Limitations
+
+* Reads email metadata only
+* Does not fetch full email body
+* Reads Drive metadata only
+* Does not read actual file contents
+* Single-user OAuth flow
+* Local token storage
+
+---
+
+# 🛣️ Roadmap
+
+## Gmail MCP
+
+* [ ] Read full email body
+* [ ] Email classification
+* [ ] Email reply generation
+
+## Drive MCP
+
+* [ ] Read file content
+* [ ] PDF parsing
+* [ ] Resume analysis
+
+## Agent
+
+* [ ] Cross-source search
+* [ ] Memory support
+* [ ] FastAPI deployment
+* [ ] Docker deployment
+* [ ] Multi-user OAuth support
+
+---
+
+# 📚 What I Learned
+
+This project helped me learn:
+
+* MCP Architecture
+* LangGraph
+* LangChain Agents
+* Tool Calling
+* Google OAuth
+* Gmail API
+* Google Drive API
+* Structured Outputs
+* Agentic AI Systems
+
+---
+
+# 👨‍💻 Author
+
+**Musheer**
+
+KnowledgeVault AI – A personal knowledge assistant powered by MCP, LangGraph, Gmail, Google Drive, and Groq LLMs.

@@ -1,0 +1,206 @@
+This error is **not from Groq itself**. It's from one of your MCP tools returning data in a format that LangChain/Groq cannot serialize into a tool message.
+
+The key part is:
+
+```text
+groq.BadRequestError:
+'messages.4.content'
+for role:tool
+content must be a string
+```
+
+That means one of your MCP tools returned:
+
+```python
+return {
+    "main_topics": [...],
+    "important_points": [...]
+}
+```
+
+or
+
+```python
+return list(...)
+```
+
+instead of a string.
+
+---
+
+### Why it worked before
+
+Your Gmail MCP returned:
+
+```python
+return "\n".join(emails)
+```
+
+which is a string.
+
+Your Drive MCP probably returned:
+
+```python
+return str(files)
+```
+
+which is also a string.
+
+Groq was happy.
+
+---
+
+### What changed
+
+Your Analytics MCP returns:
+
+```python
+return result.model_dump()
+```
+
+which returns a Python dictionary:
+
+```python
+{
+  "main_topics": [...],
+  "important_points": [...],
+  "action_items": [...],
+  "short_summary": "..."
+}
+```
+
+Many MCP adapters and Groq tool-calling paths expect:
+
+```python
+tool_result.content == str
+```
+
+not a dict.
+
+---
+
+### Quick fix
+
+Change:
+
+```python
+return result.model_dump()
+```
+
+to:
+
+```python
+import json
+
+return json.dumps(
+    result.model_dump(),
+    indent=2
+)
+```
+
+or
+
+```python
+return result.model_dump_json()
+```
+
+---
+
+### Better MCP version
+
+```python
+@mcp.tool()
+def summarize_data(data: str):
+
+    result = structured_model.invoke(
+        f"""
+        Analyze:
+
+        {data}
+        """
+    )
+
+    return result.model_dump_json(indent=2)
+```
+
+Now the tool returns:
+
+```json
+{
+  "main_topics": [
+    "AI Jobs"
+  ],
+  "important_points": [
+    "Forage AI Internship"
+  ],
+  "action_items": [
+    "Apply"
+  ],
+  "short_summary": "Recent emails focus on AI jobs."
+}
+```
+
+as a **string**, which Groq accepts.
+
+---
+
+### Another issue
+
+Your user query:
+
+```text
+is there any email without unwanted label in my previous 15 emails?
+```
+
+is vague.
+
+The agent has to infer what:
+
+```text
+unwanted label
+```
+
+means.
+
+Does it mean:
+
+* Promotions?
+* Spam?
+* Job alerts?
+* Marketing emails?
+
+The model may call multiple tools trying to figure it out.
+
+Try:
+
+```text
+Among my last 15 emails, which ones are not job alerts, promotions, or newsletters?
+```
+
+Much clearer.
+
+---
+
+### Debug tip
+
+Before returning from Analytics MCP:
+
+```python
+print(type(result.model_dump()))
+```
+
+I expect you'll see:
+
+```python
+<class 'dict'>
+```
+
+which confirms the source of the error.
+
+So the most likely fix is:
+
+```python
+return result.model_dump_json()
+```
+
+in `summarize_data.py`.
