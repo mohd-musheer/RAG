@@ -17,3 +17,5 @@ langchain-core
 sentence-transformers 
 faiss-cpu
 chromadb
+deepagents
+tavily

@@ -6,7 +6,9 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "chromadb>=1.5.9",
+    "deepagents>=0.6.8",
     "faiss-cpu>=1.14.2",
+    "grandalf>=0.8",
     "ipykernel>=7.2.0",
     "langchain>=1.3.1",
     "langchain-community>=0.4.2",
@@ -23,19 +25,27 @@ dependencies = [
     "pypdf>=6.12.2",
     "python-dotenv>=1.2.2",
     "sentence-transformers>=5.5.1",
+    "tavily>=1.1.0",
     "youtube-transcript-api>=1.2.4",
     "yt-dlp>=2026.3.17",
 ]
 
 [dependency-groups]
 dev = [
+    "deepagents>=0.6.8",
     "langchain",
     "langchain-community>=0.4.2",
     "langchain-google-genai>=4.2.3",
     "langchain-groq>=1.1.2",
     "langchain-openai>=1.2.2",
+    "langchainproject",
     "python-dotenv>=1.2.2",
 ]
 
 [tool.uv.sources]
 langchainproject = { workspace = true }
+
+[tool.uv.workspace]
+members = [
+    ".",
+]
