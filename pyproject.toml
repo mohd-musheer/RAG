@@ -32,14 +32,28 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "chromadb>=1.5.9",
     "deepagents>=0.6.8",
+    "faiss-cpu>=1.14.2",
     "langchain",
     "langchain-community>=0.4.2",
+    "langchain-core>=1.4.0",
     "langchain-google-genai>=4.2.3",
     "langchain-groq>=1.1.2",
+    "langchain-mcp-adapters>=0.2.2",
     "langchain-openai>=1.2.2",
+    "langchain-tavily>=0.2.18",
     "langchainproject",
+    "langsmith>=0.8.5",
+    "mcp>=1.27.2",
+    "pydantic>=2.13.4",
+    "pymupdf>=1.27.2.3",
+    "pypdf>=6.12.2",
     "python-dotenv>=1.2.2",
+    "sentence-transformers>=5.5.1",
+    "tavily>=1.1.0",
+    "youtube-transcript-api>=1.2.4",
+    "yt-dlp>=2026.3.17",
 ]
 
 [tool.uv.sources]

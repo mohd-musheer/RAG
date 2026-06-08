@@ -18,4 +18,5 @@ sentence-transformers
 faiss-cpu
 chromadb
 deepagents
+langsmith
 tavily
