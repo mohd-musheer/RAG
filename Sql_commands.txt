@@ -1,0 +1,74 @@
+-- ===========================================
+-- CRUD SQL Commands Example
+-- ===========================================
+
+-- Create Database
+CREATE DATABASE SchoolDB;
+
+-- Use Database
+USE SchoolDB;
+
+-- Create Table
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100) NOT NULL,
+    Age INT,
+    City VARCHAR(100)
+);
+
+-- ===========================================
+-- CREATE (Insert Data)
+-- ===========================================
+
+INSERT INTO Students (Name, Age, City)
+VALUES
+('Ali', 20, 'Mumbai'),
+('Sara', 22, 'Delhi'),
+('John', 21, 'Pune');
+
+-- ===========================================
+-- READ (Select Data)
+-- ===========================================
+
+-- View all records
+SELECT * FROM Students;
+
+-- View specific columns
+SELECT Name, Age FROM Students;
+
+-- View with condition
+SELECT * FROM Students
+WHERE Age > 20;
+
+-- ===========================================
+-- UPDATE (Modify Data)
+-- ===========================================
+
+UPDATE Students
+SET City = 'Hyderabad'
+WHERE StudentID = 2;
+
+UPDATE Students
+SET Age = 23
+WHERE Name = 'Sara';
+
+-- ===========================================
+-- DELETE (Remove Data)
+-- ===========================================
+
+-- Delete one record
+DELETE FROM Students
+WHERE StudentID = 3;
+
+-- Delete all records
+DELETE FROM Students;
+
+-- ===========================================
+-- Optional Commands
+-- ===========================================
+
+-- Remove table
+DROP TABLE Students;
+
+-- Remove database
+DROP DATABASE SchoolDB;
